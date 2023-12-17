@@ -67,8 +67,6 @@ const useWebScraper = () => {
       }
     });
 
-    console.log(items);
-
     return items;
   };
 
