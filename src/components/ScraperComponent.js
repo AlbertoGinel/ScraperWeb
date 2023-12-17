@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import useWebScraper from "../hooks/useWebScraper";
+import ArticleElement from "./ArticleElement";
 
 const ScraperComponent = () => {
   const { scrapedData, isLoading, error, refetch } = useWebScraper();
@@ -9,22 +10,13 @@ const ScraperComponent = () => {
       {isLoading && <p>Loading...</p>}
       {error && <p>Error: {error.message}</p>}
 
-      <p>List Length: {scrapedData.length}</p>
-
       {scrapedData.length > 0 && (
         <ul>
           {scrapedData.map((item, index) => (
-            <>
-              <p>{item.title}</p>
-              <p>Rank: {item.rank}</p>
-              <p>Comments: {item.comments}</p>
-              <p>Points: {item.points}</p>
-            </>
+            <ArticleElement key={index} item={item} />
           ))}
         </ul>
       )}
-
-      {/* <button onClick={refetch}>Refetch Data</button> */}
     </div>
   );
 };
