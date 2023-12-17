@@ -1,70 +1,40 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
 ### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# StackBuilders Hiring Technical Test
 
-### `npm run build`
+This project demonstrates a web crawler using scraping techniques to gather data from Hacker News. It utilizes plain React for the front-end development, Tailwind for styling, and Axios for data fetching.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Features
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The web crawler effectively extracts and displays relevant information from Hacker News, including:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Title of the news article
+- Rank (position on Hacker News)
+- Number of comments
+- Points (score on Hacker News)
 
-### `npm run eject`
+## CORS Handling
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Cross-Origin Resource Sharing (CORS) restrictions posed a challenge in accessing Hacker News data directly. To overcome this, a temporary server called CORS Anywhere is employed. Users are prompted to visit the CORS Anywhere demo server and click the "Request temporary access to the demo server" button. This grants the app temporary access to the Hacker News domain, allowing it to scrape data effectively.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+"https://cors-anywhere.herokuapp.com/https://news.ycombinator.com/"
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Project Structure and Implementation
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The project's development follows a structured approach, reflecting the progress made in each commit:
 
-## Learn More
+1. **Scraping Hook:** Creating a scraping hook to retrieve the raw HTML of the Hacker News page.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. **Data Extraction:** Employing scraping techniques to extract relevant information from the obtained HTML, such as title, rank, comments, and points.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. **ArticleComponent:** Developing an `ArticleComponent` to structure the data into a readable format.
 
-### Code Splitting
+4. **Styling with Tailwind:** Incorporating Tailwind CSS for styling the application, including the layout and appearance of the scraped data.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+5. **Filtering Options:** Implementing filtering options to enable users to refine the displayed articles based on their desired criteria.
 
-### Analyzing the Bundle Size
+6. **Testing:** Adding unit tests to ensure the functionality and accuracy of the scraping and data extraction processes.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+7. **Styling and Readme:** Refining the overall styling of the application and enhancing the README file for better documentation.

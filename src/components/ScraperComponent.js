@@ -38,7 +38,7 @@ const ScraperComponent = () => {
       {isLoading && <p>Loading...</p>}
       {error && <p>Error: {error.message}</p>}
 
-      <div className="flex flex-col space-y-4">
+      <div className="flex flex-col space-y-4 p-5">
         <label className="flex items-center">
           <input
             type="checkbox"
@@ -71,14 +71,14 @@ const ScraperComponent = () => {
           points.
         </label>
 
+        <p>List Length: {filteredData.length}</p>
+
         {false && (
           <p className="font-bold">
             Selected Option: {selectedOption || "None"}
           </p>
         )}
       </div>
-
-      <p>List Length: {filteredData.length}</p>
 
       {filteredData.length > 0 && (
         <ul>
