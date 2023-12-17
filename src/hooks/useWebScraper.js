@@ -15,9 +15,9 @@ const useWebScraper = () => {
       );
       const html = response.data;
 
-      console.log(html);
+      const parsedData = parseHTML(html, 30);
 
-      setScrapedData(html);
+      setScrapedData(parsedData);
     } catch (error) {
       setError(error);
       console.error("There is an error in useWebScraper", error);
@@ -30,6 +30,48 @@ const useWebScraper = () => {
     }
   };
 
+  const parseHTML = (html, entryNumber) => {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, "text/html");
+
+    const items = [];
+
+    doc.querySelectorAll(".athing").forEach((athingElement, index) => {
+      if (index < entryNumber) {
+        const rank = athingElement
+          .querySelector(".rank")
+          .textContent.trim()
+          .replace(/\D/g, "");
+
+        const titleElement = athingElement.querySelector(".titleline a");
+        const title = titleElement
+          ? titleElement.textContent.trim()
+          : "Title not found";
+
+        const scoreElement =
+          athingElement.nextElementSibling.querySelector(".score");
+        const points = scoreElement
+          ? scoreElement.textContent.trim().replace(/\D/g, "")
+          : "0";
+
+        const commentsElement =
+          athingElement.nextElementSibling.querySelector(".subline");
+
+        const comments =
+          commentsElement && commentsElement.innerHTML
+            ? commentsElement.innerHTML.match(/(\d+)\s*&nbsp;comments/)?.[1] ||
+              "Comments not found"
+            : "Comments not found";
+
+        items.push({ rank, title, points, comments });
+      }
+    });
+
+    console.log(items);
+
+    return items;
+  };
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -39,7 +81,9 @@ const useWebScraper = () => {
     fetchData();
   };
 
-  return {};
+  console.log(scrapedData, isLoading, error);
+
+  return { scrapedData, isLoading, error, refetch };
 };
 
 export default useWebScraper;
