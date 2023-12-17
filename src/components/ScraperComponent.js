@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import useWebScraper from "../hooks/useWebScraper";
 import ArticleElement from "./ArticleElement";
 
@@ -17,6 +17,8 @@ const ScraperComponent = () => {
           ))}
         </ul>
       )}
+
+      {false && <button onClick={refetch}>Refetch Data</button>}
     </div>
   );
 };

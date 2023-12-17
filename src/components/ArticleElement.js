@@ -1,17 +1,15 @@
 import React from "react";
 
 const ArticleElement = ({ item }) => {
-  console.log(item);
-
   return (
-    <div>
-      <p>{item.title}</p>
-      <div>
-        <p>Rank: {item.rank}</p>
-        <p>Comments: {item.comments}</p>
-        <p>Points: {item.points}</p>
+    <div className="flex flex-col p-4 border rounded mb-4">
+      <p className="text-lg font-bold mb-2">{item.title}</p>
+      <div className="flex mb-2">
+        <p className="text-sm mr-4">Rank: {item.rank}</p>
+        <p className="text-sm mr-4">Comments: {item.comments}</p>
+        <p className="text-sm">Points: {item.points}</p>
       </div>
-      <hr />
+      <hr className="border-t my-4" />
     </div>
   );
 };
